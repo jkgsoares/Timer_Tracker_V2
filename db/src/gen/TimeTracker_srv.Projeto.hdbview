@@ -1,0 +1,12 @@
+VIEW TimeTracker_srv_Projeto AS SELECT
+  Projeto_0.createdAt,
+  Projeto_0.createdBy,
+  Projeto_0.modifiedAt,
+  Projeto_0.modifiedBy,
+  Projeto_0.CodProjeto,
+  Projeto_0.Nome,
+  Projeto_0.aprovadores_CodAprovador
+FROM sap_ui_apontamento_Projeto AS Projeto_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TimeTracker_srv_Aprovadores AS aprovadores ON (aprovadores.CodAprovador = aprovadores_CodAprovador)
+)

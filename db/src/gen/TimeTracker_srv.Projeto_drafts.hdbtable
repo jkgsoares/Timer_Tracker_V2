@@ -1,0 +1,17 @@
+COLUMN TABLE TimeTracker_srv_Projeto_drafts (
+  createdAt TIMESTAMP NULL,
+  createdBy NVARCHAR(255) NULL,
+  modifiedAt TIMESTAMP NULL,
+  modifiedBy NVARCHAR(255) NULL,
+  CodProjeto NVARCHAR(20) NOT NULL,
+  Nome NVARCHAR(500) NULL,
+  aprovadores_CodAprovador NVARCHAR(5000) NULL,
+  IsActiveEntity BOOLEAN,
+  HasActiveEntity BOOLEAN,
+  HasDraftEntity BOOLEAN,
+  DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(CodProjeto)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TimeTracker_srv_Aprovadores AS aprovadores ON (aprovadores.CodAprovador = aprovadores_CodAprovador),
+  MANY TO ONE JOIN TimeTracker_srv_DraftAdministrativeData AS DraftAdministrativeData ON (DraftAdministrativeData.DraftUUID = DraftAdministrativeData_DraftUUID)
+)

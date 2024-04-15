@@ -1,0 +1,9 @@
+COLUMN TABLE sap_ui_apontamento_Status (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(5000) NOT NULL,
+  Descricao NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

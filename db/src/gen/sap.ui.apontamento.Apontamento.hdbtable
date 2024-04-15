@@ -1,0 +1,12 @@
+COLUMN TABLE sap_ui_apontamento_Apontamento (
+  UUID NVARCHAR(36) NOT NULL,
+  Data DATE,
+  QuantidadeHoras INTEGER,
+  status NVARCHAR(5000) DEFAULT 'Aguardando Aprovação',
+  funcionario NVARCHAR(5000),
+  projeto_CodProjeto NVARCHAR(20),
+  PRIMARY KEY(UUID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_ui_apontamento_Projeto AS projeto ON (projeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN sap_ui_apontamento_Projeto AS NomeProjeto ON (NomeProjeto.CodProjeto = projeto_CodProjeto)
+)

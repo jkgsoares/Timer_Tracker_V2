@@ -1,0 +1,17 @@
+COLUMN TABLE TimeTracker_srv_Apontamento_drafts (
+  UUID NVARCHAR(36) NOT NULL,
+  Data DATE NULL,
+  QuantidadeHoras INTEGER NULL,
+  status NVARCHAR(5000) NULL DEFAULT 'Aguardando Aprovação',
+  funcionario NVARCHAR(5000) NULL,
+  projeto_CodProjeto NVARCHAR(20) NULL,
+  IsActiveEntity BOOLEAN,
+  HasActiveEntity BOOLEAN,
+  HasDraftEntity BOOLEAN,
+  DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(UUID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS projeto ON (projeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS NomeProjeto ON (NomeProjeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN TimeTracker_srv_DraftAdministrativeData AS DraftAdministrativeData ON (DraftAdministrativeData.DraftUUID = DraftAdministrativeData_DraftUUID)
+)

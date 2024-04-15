@@ -1,0 +1,11 @@
+COLUMN TABLE sap_ui_apontamento_Aprovadores (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  CodAprovador NVARCHAR(5000) NOT NULL,
+  Nome NVARCHAR(500),
+  PRIMARY KEY(CodAprovador)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN sap_ui_apontamento_Projeto AS projeto ON (projeto.aprovadores_CodAprovador = CodAprovador)
+)

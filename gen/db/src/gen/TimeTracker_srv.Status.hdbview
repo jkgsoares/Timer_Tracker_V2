@@ -1,0 +1,8 @@
+VIEW TimeTracker_srv_Status AS SELECT
+  Status_0.createdAt,
+  Status_0.createdBy,
+  Status_0.modifiedAt,
+  Status_0.modifiedBy,
+  Status_0.ID,
+  Status_0.Descricao
+FROM sap_ui_apontamento_Status AS Status_0

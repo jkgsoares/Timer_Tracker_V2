@@ -1,0 +1,9 @@
+COLUMN TABLE sap_ui_apontamento_Funcionario (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  CodFuncionario NVARCHAR(5000) NOT NULL,
+  Nome NVARCHAR(500),
+  PRIMARY KEY(CodFuncionario)
+)

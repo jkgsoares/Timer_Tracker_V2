@@ -1,0 +1,8 @@
+VIEW TimeTracker_srv_Funcionario AS SELECT
+  Funcionario_0.createdAt,
+  Funcionario_0.createdBy,
+  Funcionario_0.modifiedAt,
+  Funcionario_0.modifiedBy,
+  Funcionario_0.CodFuncionario,
+  Funcionario_0.Nome
+FROM sap_ui_apontamento_Funcionario AS Funcionario_0

@@ -1,0 +1,13 @@
+VIEW TimeTracker_srv_ProjetoFuncionario AS SELECT
+  ProjetoFuncionario_0.createdAt,
+  ProjetoFuncionario_0.createdBy,
+  ProjetoFuncionario_0.modifiedAt,
+  ProjetoFuncionario_0.modifiedBy,
+  ProjetoFuncionario_0.projeto_CodProjeto,
+  ProjetoFuncionario_0.funcionario_CodFuncionario
+FROM sap_ui_apontamento_ProjetoFuncionario AS ProjetoFuncionario_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS projeto ON (projeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN TimeTracker_srv_Funcionario AS funcionario ON (funcionario.CodFuncionario = funcionario_CodFuncionario),
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS NomeProjeto ON (NomeProjeto.CodProjeto = projeto_CodProjeto)
+)

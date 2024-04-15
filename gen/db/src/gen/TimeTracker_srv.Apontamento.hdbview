@@ -1,0 +1,12 @@
+VIEW TimeTracker_srv_Apontamento AS SELECT
+  Apontamento_0.UUID,
+  Apontamento_0.Data,
+  Apontamento_0.QuantidadeHoras,
+  Apontamento_0.status,
+  Apontamento_0.funcionario,
+  Apontamento_0.projeto_CodProjeto
+FROM sap_ui_apontamento_Apontamento AS Apontamento_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS projeto ON (projeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN TimeTracker_srv_Projeto AS NomeProjeto ON (NomeProjeto.CodProjeto = projeto_CodProjeto)
+)

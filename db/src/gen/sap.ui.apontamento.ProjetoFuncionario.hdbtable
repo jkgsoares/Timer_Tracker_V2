@@ -1,0 +1,13 @@
+COLUMN TABLE sap_ui_apontamento_ProjetoFuncionario (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  projeto_CodProjeto NVARCHAR(20) NOT NULL,
+  funcionario_CodFuncionario NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(projeto_CodProjeto, funcionario_CodFuncionario)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_ui_apontamento_Projeto AS projeto ON (projeto.CodProjeto = projeto_CodProjeto),
+  MANY TO ONE JOIN sap_ui_apontamento_Funcionario AS funcionario ON (funcionario.CodFuncionario = funcionario_CodFuncionario),
+  MANY TO ONE JOIN sap_ui_apontamento_Projeto AS NomeProjeto ON (NomeProjeto.CodProjeto = projeto_CodProjeto)
+)
