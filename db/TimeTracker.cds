@@ -1,4 +1,4 @@
-namespace sap.ui.apontamento;
+namespace sap.ui.apontamento; 
 
 entity Apontamento 
 {
